@@ -1,9 +1,32 @@
 // Place all the styles related to the StaticPages controller here.
 // They will automatically be included in application.css.
 // You can use Less here: http://lesscss.org/
-@swiss-font: 'Alegreya Sans SC', sans-serif;
+@swiss-font: 'Quicksand', sans-serif;
+@nice-red: #d63737;
+@nice-black: #2b2b2b;
+@global-bg: #fafaf6;
 body {
 	font-family: @swiss-font;
-	font-size: 20px;
-	color:red;	
+	font-size: 16px;
+	color: @nice-red;	
+	text-transform: uppercase;
+}
+
+.logo {
+	.header {
+		font-size: 30px;
+		font-weight: bolder;
+		color: @nice-red;
+	}
+	.logo-bottom {
+		color: @nice-black;
+	}
+	padding: 0.5% 1% 2% 1%;
+}
+
+.register-button {
+	background-color: @nice-red;
+	color: @global-bg;
+	padding: 50px;
+	text-align: center;
 }

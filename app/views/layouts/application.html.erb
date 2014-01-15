@@ -2,7 +2,7 @@
 <html>
 <head>
   <title>TheIssue</title>
-  <link href='http://fonts.googleapis.com/css?family=Alegreya+Sans+SC:300' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Quicksand' rel='stylesheet' type='text/css'>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
@@ -38,9 +38,25 @@
       </li>
     </ul>
    </div>
-  </nav>
-
+</nav>
+<div class="container">
+  <div class="row">
+    <div class="col-md-8">
+      <div class="logo" href="/static_pages/home">
+        <div class="header"> The Issue <br> Singapore: The 48 Year Siege </div>
+        <span class="logo-bottom"> 1st Feb 2014, Utown</span>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="register-button">
+        Register Now
+      </div>
+    </div>
+  </div>
+  
 <%= yield %>
+  
+</div>
 
 </body>
 </html>
