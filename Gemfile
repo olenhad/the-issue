@@ -8,6 +8,8 @@ gem 'sqlite3'
 
 gem 'therubyracer'
 
+gem 'bcrypt-ruby', '3.1.2'
+
 # Use LESS for stylesheets
 gem "less-rails", "~> 2.4.2"
 

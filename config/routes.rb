@@ -1,7 +1,11 @@
 TheIssue::Application.routes.draw do
+  resources :users
   root 'static_pages#home'
+  match '/register',  to: 'users#new', via: 'get'
   match '/theme', to: 'static_pages#theme', via: 'get'
-  
+  # get "users" => 'users#index'
+  # get "users/:id" => 'users#show'
+  # post "/users" => "users#create"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
