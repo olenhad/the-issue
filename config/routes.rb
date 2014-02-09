@@ -3,6 +3,7 @@ TheIssue::Application.routes.draw do
   root 'static_pages#home'
   match '/register',  to: 'users#new', via: 'get'
   match '/theme', to: 'static_pages#theme', via: 'get'
+  match "/speakers",to: "static_pages#speakers", via: 'get'
 
   namespace :api do
     get "users/search" => "users#search"

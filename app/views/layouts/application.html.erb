@@ -8,6 +8,14 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<script type="text/javascript">
+  window.appConfig = {};
+  window.appConfig["FB_APP_ID"] = <% if Rails.env.development? -%> 
+                                  "608873879182214"
+                                  <% else -%>
+                                  "1387251161495606" 
+                                  <% end -%>
+</script>
 <div id="fb-root"></div>
 
 <nav class="navbar navbar-default" role="navigation">
@@ -25,20 +33,9 @@
   <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
     <ul class="nav navbar-nav">
       <li <% if root_path == request.path -%> class="active" <% end -%>> <%= link_to "Home", root_path %></li>
-      <li><a href="#">Speakers</a></li>
+      <li <% if speakers_path == request.path -%> class="active" <% end -%>> <%= link_to "Speakers", speakers_path %></li>
       <li <% if theme_path == request.path -%> class="active" <% end -%>><%= link_to "Theme",theme_path %></li>
-      <li class="dropdown">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
-        <ul class="dropdown-menu">
-          <li><a href="#">Action</a></li>
-          <li><a href="#">Another action</a></li>
-          <li><a href="#">Something else here</a></li>
-          <li class="divider"></li>
-          <li><a href="#">Separated link</a></li>
-          <li class="divider"></li>
-          <li><a href="#">One more separated link</a></li>
-        </ul>
-      </li>
+      
     </ul>
    </div>
 </nav>
@@ -47,7 +44,9 @@
     <div class="col-md-8">
       <div class="logo" href="/static_pages/home">
         <div class="header"> The Issue <br> Singapore: The 48 Year Siege </div>
-        <span class="logo-bottom"> 1st Feb 2014, Utown</span>
+        <span class="logo-bottom"> 13th March 2014, 7 - 10 PM</span>
+        <br>
+        <span class="logo-bottom"> Ngee Ann Kong Si Auditorium, UTown</span>
       </div>
     </div>
     <div class="col-md-4">

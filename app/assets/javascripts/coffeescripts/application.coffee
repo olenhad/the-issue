@@ -1,3 +1,3 @@
-console.log "fuck this"
-
-    
+$(document).ready () ->
+    $(".register-button").click (e) ->
+        window.location.href = "/register"
