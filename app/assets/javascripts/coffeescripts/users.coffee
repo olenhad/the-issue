@@ -60,7 +60,7 @@ $(document).ready ->
     $.getScript( 
         '//connect.facebook.net/en_UK/all.js',
         () ->  
-            FB.init {appId: '608873879182214'}
+            FB.init {appId: window.appConfig.FB_APP_ID}
             console.log "WOHOOO: #{FB}"
             main()
 
