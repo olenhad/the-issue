@@ -1,15 +1,41 @@
+redirectToProfile = (user) ->
+	window.location.replace("/users/" + user.id)
+
 fetchUserData = () ->
-	FB.api '/me', (response) ->
-    	console.log response
+	FB.api '/me', (fbresponse) ->
+    	console.log fbresponse
+    	findUser fbresponse.email,
+    		(user) ->
+    			if user
+    				console.log("user = ", user)
+    				redirectToProfile(user)
+    			else
+    				registerUser(fbresponse)
+    		
+    	
 
 registerUser = (fbUser) ->
-	$.post('/api/users/create',
+	$.post('/api/users',
 			{
-				name: fbUser.name,
-				email: fbUser.email,
-				type: 'fb',
-				
+				user: {
+					name: fbUser.name,
+					email: fbUser.email,
+					auth_type: 'facebook',	
+				}
 			})
+			.done (data) ->
+				console.log "registered ", data
+				redirectToProfile(data.user)
+			.error (res) ->
+				console.log res
+				document.write(res.responseText)
+
+findUser = (email, callback) ->
+	$.get('/api/users/search',
+			{'email': email}
+		)
+		.done callback
+
 
 main = () ->
 	$("#fb-login-button").click (event) ->

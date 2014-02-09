@@ -5,6 +5,7 @@ TheIssue::Application.routes.draw do
   match '/theme', to: 'static_pages#theme', via: 'get'
 
   namespace :api do
+    get "users/search" => "users#search"
     resources :users
   end
   # get "users" => 'users#index'
