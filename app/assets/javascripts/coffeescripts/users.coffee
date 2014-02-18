@@ -1,5 +1,6 @@
 redirectToProfile = (user) ->
-	window.location.replace("/users/" + user.id)
+	console.log user 
+	#window.location = '/auth/facebook/callback' if response.authResponse
 
 fetchUserData = () ->
 	FB.api '/me', (fbresponse) ->
@@ -41,13 +42,14 @@ main = () ->
 	$("#fb-login-button").click (event) ->
 		FB.getLoginStatus (response) ->
 			if response.status == "connected"
-				fetchUserData()
+				window.location = '/auth/facebook/callback?' + $.param({ signed_request: response.authResponse.signedRequest }) if response.authResponse
 			else
 				FB.login(
 					(response) ->
 	            		if response.authResponse 
 	            			console.log "Logged in!"
-	            			fetchUserData()
+	            			window.location = '/auth/facebook/callback?'+$.param({ signed_request: response.authResponse.signedRequest }) if response.authResponse
+	            			#fetchUserData()
 	            		else
 	            			console.log "Error!"
 

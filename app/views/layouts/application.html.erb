@@ -5,7 +5,7 @@
   <link href='http://fonts.googleapis.com/css?family=Quicksand' rel='stylesheet' type='text/css'>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-  <%= csrf_meta_tags %>
+<%= csrf_meta_tag %>
 </head>
 <body>
 <script type="text/javascript">
@@ -51,7 +51,14 @@
     </div>
     <div class="col-md-4">
       <div class="register-button">
-        <a href="/register"> Register Now </a>
+        <%if logged_in? -%> 
+        <a href="/users/<%= logged_user.id %>" > <%= logged_user.name%> </a>
+        <br>
+        <a href="/logout"> Logout</a>
+        <% else -%>
+        <a href="/register"> Register Now</a>
+        <% end -%> 
+        
       </div>
     </div>
   </div>
@@ -59,6 +66,5 @@
 <%= yield %>
   
 </div>
-  
 </body>
 </html>

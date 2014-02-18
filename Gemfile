@@ -20,7 +20,7 @@ gem 'less-rails-bootstrap'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 
-gem 'rails-api'
+#gem 'rails-api'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
@@ -34,6 +34,12 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 
 gem 'coffee-rails'
+
+gem 'activerecord-session_store', github: 'rails/activerecord-session_store'
+
+gem 'omniauth'
+
+gem 'omniauth-facebook', '1.4.0'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.

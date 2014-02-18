@@ -4,7 +4,12 @@ TheIssue::Application.routes.draw do
   match '/register',  to: 'users#new', via: 'get'
   match '/theme', to: 'static_pages#theme', via: 'get'
   match "/speakers",to: "static_pages#speakers", via: 'get'
-
+  match "/login", to: "users#login", via: 'post'
+  match "/logout", to: "users#logout", via: 'get'
+  
+  match 'auth/:provider/callback', to: 'fb_session#create', via: [:get, :post]
+  match 'auth/failure', to: redirect('/'), via: [:get, :post]
+  
   namespace :api do
     get "users/search" => "users#search"
     resources :users
